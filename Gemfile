@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
+gem "bootstrap-sass"
 gem "validators"
 gem 'bcrypt', '~> 3.1.7'
 
