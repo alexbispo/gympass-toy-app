@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  name: Jhon Doe
+  email: jhondoe@mysite.com
+  cpf: 00000000191
+  password_digest: <%= BCrypt::Password.create('jhonSecret') %>
+  role: 0
