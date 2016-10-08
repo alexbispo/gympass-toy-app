@@ -1,5 +1,7 @@
 require "validators/validates_cpf_format_of"
 class User < ApplicationRecord
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
   has_many :locations, dependent: :destroy
 
   enum role: [:gympass_employee, :gym_manager, :regular_end_user]

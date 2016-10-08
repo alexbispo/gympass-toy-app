@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   post "/signup" => "signup#create"
 
   get "/confirmation" => "confirmation#show"
+
+  get "/login" => "login#new"
+  post "/login" => "login#create"
+  delete "/logout" => "login#destroy"
 end

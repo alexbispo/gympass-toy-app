@@ -1,0 +1,17 @@
+<%= simple_form_for(@login, url: login_path) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :email, label: "Email", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :password, label: "Senha", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.button :submit, "Fazer login" %>
+    </div>
+  </div>
+<% end %>
