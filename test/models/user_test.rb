@@ -91,9 +91,4 @@ class UserTest < ActiveSupport::TestCase
     user = User.create(role: nil)
     refute user.errors[:role].empty?
   end
-
-  test "requires a valid role" do
-    user = User.create(role: "invalid")
-    refute user.errors[:role].empty?
-  end
 end
