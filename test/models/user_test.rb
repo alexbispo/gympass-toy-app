@@ -53,6 +53,30 @@ class UserTest < ActiveSupport::TestCase
     refute user.errors[:email].empty?
   end
 
+  test "requires a cpf" do
+    user = User.create(cpf: "")
+    refute user.errors[:cpf].empty?
+  end
+
+  %w[
+    invalid
+    aaa
+    00000000000
+    11111111111
+    12345678910
+    000000000191
+  ].each do |document|
+    test "requires a valid cpf - #{document}" do
+      user = User.create(cpf: document)
+      refute user.errors[:cpf].empty?
+    end
+  end
+
+  test "accepts valid cpf" do
+    user = User.create(cpf: "00000000191")
+    assert user.errors[:cpf].empty?
+  end
+
   test "requires password" do
     user = User.create(password: "")
     refute user.errors[:password].empty?

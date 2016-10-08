@@ -10,8 +10,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
+gem "simple_form"
 gem "bootstrap-sass"
 gem "validators"
+gem "cpf_cnpj"
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do

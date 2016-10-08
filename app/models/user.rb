@@ -1,3 +1,4 @@
+require "validators/validates_cpf_format_of"
 class User < ApplicationRecord
   has_secure_password
   validates_presence_of :name
@@ -6,4 +7,5 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validates_presence_of :role
   validates_numericality_of :role, only_integer: true
+  validates_cpf_format_of :cpf
 end

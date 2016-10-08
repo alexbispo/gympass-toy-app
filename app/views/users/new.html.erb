@@ -1,0 +1,32 @@
+<%= simple_form_for(@user) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :name, label: "Nome e sobrenome", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :email, label: "Email para cadastro", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :cpf, label: "CPF", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :password, label: "Crie sua senha", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :password_confirmation, label: "Confirme sua senha", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.button :submit, "Cadastrar" %>
+    </div>
+  </div>
+<% end %>
