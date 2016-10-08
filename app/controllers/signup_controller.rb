@@ -7,8 +7,12 @@ class SignupController < ApplicationController
     @signup = Signup.new(signup_params)
 
     if @signup.valid?
-      if @signup.save
-        redirect_to root_path, notice: "E-mail de confirmação enviado!"
+      User.transaction do
+        user = @signup.save
+        if user.persisted?
+          SignupMailer.confirm_email(user).deliver_now
+          redirect_to root_path, notice: "E-mail de confirmação enviado!"
+        end
       end
     else
       render :new

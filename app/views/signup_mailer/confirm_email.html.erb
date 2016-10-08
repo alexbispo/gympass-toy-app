@@ -1,0 +1,10 @@
+<h1>Seja bem vindo ao Gympass!</h1>
+<p>
+  Seja bem vindo ao Gympass, <%= @user.name %>.
+</p>
+<p>
+	Para você começar a usar o site, acesse o link <%= link_to(@confirmation_link, @confirmation_link) %>
+</p>
+<p>
+	Obrigado por se cadastrar no <%= link_to('Gympass', root_url) %>
+</p>

@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 20161008001201) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 100, null: false
-    t.string   "email",           limit: 100, null: false
-    t.string   "cpf",             limit: 11,  null: false
-    t.string   "password_digest",             null: false
-    t.integer  "role",                        null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "name",               limit: 100, null: false
+    t.string   "email",              limit: 100, null: false
+    t.string   "cpf",                limit: 11,  null: false
+    t.string   "password_digest",                null: false
+    t.integer  "role",                           null: false
+    t.datetime "confirmed_at"
+    t.string   "confirmation_token"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

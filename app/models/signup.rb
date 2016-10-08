@@ -18,29 +18,26 @@ class Signup
   validates :work_longitude, presence: true, if: :is_a_regular_or_gym_manager_user?
 
   def save
-    User.transaction do
-      user = User.new(user_params)
-      user.save
-      if user.persisted?
-        if is_a_regular_end_user?
-          home_location = Location.new(home_location_params)
-          home_location.user = user
-          home_location.save!
-          work_location = Location.new(work_location_params)
-          work_location.user = user
-          work_location.save!
-        elsif is_a_gym_manager_user?
-          work_location = Location.new(work_location_params)
-          work_location.user = user
-          work_location.save!
-        elsif is_a_gympass_employee?
-          gympass_location = Location.create(gympass_location_params)
-          gympass_location.user = user
-          gympass_location.save!
-        end
+    user = User.new(user_params)
+    if user.save
+      if is_a_regular_end_user?
+        home_location = Location.new(home_location_params)
+        home_location.user = user
+        home_location.save!
+        work_location = Location.new(work_location_params)
+        work_location.user = user
+        work_location.save!
+      elsif is_a_gym_manager_user?
+        work_location = Location.new(work_location_params)
+        work_location.user = user
+        work_location.save!
+      elsif is_a_gympass_employee?
+        gympass_location = Location.create(gympass_location_params)
+        gympass_location.user = user
+        gympass_location.save!
       end
-      user.persisted?
     end
+    user
   end
 
 

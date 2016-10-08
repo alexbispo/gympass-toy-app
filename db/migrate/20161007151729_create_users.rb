@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :cpf, null: false, limit: 11
       t.string :password_digest, null: false
       t.integer :role, null: false
+      t.datetime :confirmed_at
+      t.string :confirmation_token
 
       t.timestamps
     end
