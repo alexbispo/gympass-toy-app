@@ -18,4 +18,5 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem "pry-rails"
+  gem "pry-meta"
 end

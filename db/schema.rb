@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20161008001201) do
   enable_extension "plpgsql"
 
   create_table "locations", force: :cascade do |t|
-    t.integer  "latitude",         null: false
-    t.integer  "longitude",        null: false
+    t.string   "latitude",         null: false
+    t.string   "longitude",        null: false
     t.integer  "type_of_location", null: false
     t.integer  "user_id",          null: false
     t.datetime "created_at",       null: false

@@ -1,6 +1,6 @@
 require "validators/validates_cpf_format_of"
 class User < ApplicationRecord
-  has_many :locations
+  has_many :locations, dependent: :destroy
 
   enum role: [:gympass_employee, :gym_manager, :regular_end_user]
 

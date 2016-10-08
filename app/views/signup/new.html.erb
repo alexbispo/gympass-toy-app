@@ -1,0 +1,62 @@
+<%= simple_form_for(@signup, url: signup_path) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :name, label: "Nome e sobrenome", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :email, label: "Email para cadastro", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :cpf, label: "CPF", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :password, label: "Crie sua senha", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :password_confirmation, label: "Confirme sua senha", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-8">
+        <%= f.collection_radio_buttons :role, [[1, "Gerente de academia"], [2, "Usuário de academia"]], :first, :last %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <%= label_tag "Endereço de casa:" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :home_latitude, as: :float, label: "Latitude" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :home_longitude, as: :float, label: "Longitude" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <%= label_tag "Endereço de trabalho:" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :work_latitude, as: :float, label: "Latitude" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :work_longitude, as: :float, label: "Longitude" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.button :submit, "Cadastrar" %>
+    </div>
+  </div>
+<% end %>
