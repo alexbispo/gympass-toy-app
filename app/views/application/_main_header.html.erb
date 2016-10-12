@@ -4,6 +4,13 @@
       <%= link_to "Gympass", root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <% if current_user.gym_manager? or current_user.gympass_employee?  %>
+            <li><a href="#">Cadastro de academias</a></li>
+          <% end %>
+        <% end %>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="current-user-name">Olá <%= current_user.name %></li>

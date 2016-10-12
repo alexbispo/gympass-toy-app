@@ -10,6 +10,7 @@ class Signup
   validates_length_of :name, maximum: 100
   validates_email_format_of :email
   validate :email_uniqueness
+  validate :cpf_uniqueness
   validates_cpf_format_of :cpf
   validates :role, presence: true , if: :is_a_regular_or_gym_manager_user?
   validates :home_latitude, presence: true, if: :is_a_regular_end_user?
@@ -80,6 +81,10 @@ class Signup
 
   def email_uniqueness
     errors.add(:email, "E-mail já cadastrado") if User.find_by_email(self.email)
+  end
+
+  def cpf_uniqueness
+    errors.add(:cpf, "CPF já cadastrado") if User.find_by_cpf(self.cpf)
   end
 
   def is_a_regular_or_gym_manager_user?

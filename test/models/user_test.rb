@@ -1,4 +1,5 @@
 require 'test_helper'
+require "cpf_cnpj"
 
 class UserTest < ActiveSupport::TestCase
   test "requires name" do
@@ -73,8 +74,14 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "accepts valid cpf" do
-    user = User.create(cpf: "00000000191")
+    user = User.create(cpf: CPF.generate)
     assert user.errors[:cpf].empty?
+  end
+
+  test "requires unique cpf" do
+    existing_user = users(:john)
+    user = User.create(cpf: existing_user.cpf)
+    refute user.errors[:cpf].empty?
   end
 
   test "requires password" do

@@ -1,4 +1,3 @@
-require "validators/validates_cpf_format_of"
 class User < ApplicationRecord
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
@@ -7,11 +6,10 @@ class User < ApplicationRecord
   enum role: [:gympass_employee, :gym_manager, :regular_end_user]
 
   has_secure_password
-  validates_presence_of :name
+  validates_presence_of :name, :role
   validates_length_of :name, maximum: 100
   validates_email_format_of :email
-  validates_uniqueness_of :email
-  validates_presence_of :role
+  validates_uniqueness_of :email, :cpf
   validates_cpf_format_of :cpf
 
   before_create do |user|

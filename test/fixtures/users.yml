@@ -3,7 +3,7 @@
 john:
   name: Jhon Doe
   email: jhondoe@mysite.com
-  cpf: 00000000191
+  cpf: <%= CPF.generate %>
   password_digest: <%= BCrypt::Password.create('test') %>
   role: 0
   confirmed_at: <%= Time.current %>
@@ -11,7 +11,7 @@ john:
 no_confirmed_user:
   name: José Doe
   email: josedoe@mysite.com
-  cpf: 00000000191
+  cpf: <%= CPF.generate %>
   password_digest: <%= BCrypt::Password.create('test') %>
   role: 0
   confirmed_at:
