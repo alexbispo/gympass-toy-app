@@ -2,6 +2,8 @@ class User < ApplicationRecord
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   has_many :locations, dependent: :destroy, as: :localizable
+  has_many :gym_users
+  has_many :gyms, through: :gym_users
 
   enum role: [:gympass_employee, :gym_manager, :regular_end_user]
 
