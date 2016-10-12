@@ -20,3 +20,7 @@ group :development, :test do
   gem "pry-rails"
   gem "pry-meta"
 end
+
+group :development do
+  gem "rails-erd"
+end
