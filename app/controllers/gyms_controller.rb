@@ -20,6 +20,6 @@ class GymsController < ApplicationController
 
   def gym_registration_params
     params.require(:gym_registration)
-      .permit([:name, :cnpj, :location_latitude, :location_longitude, :opening_time_hour, :opening_time_min, :closing_time_hour, :closing_time_min, :gym_managers])
+      .permit(:name, :cnpj, :location_latitude, :location_longitude, :opening_time_hour, :opening_time_min, :closing_time_hour, :closing_time_min, :gym_managers => [])
   end
 end

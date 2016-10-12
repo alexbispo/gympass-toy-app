@@ -18,9 +18,9 @@ class GymRegistration
       location.save!
 
       GymUser.create!(user: current_user, gym: gym)
-
-      if gym_managers
-        gym_manager_users = User.find[gym_managers]
+      gym_managers.reject!(&:blank?)
+      unless gym_managers.empty?
+        gym_manager_users = User.find(gym_managers)
         gym_manager_users.each do |u|
           GymUser.create!(user: u, gym: gym)
         end
