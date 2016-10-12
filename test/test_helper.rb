@@ -11,6 +11,10 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
+  def setup
+    Rails.application.routes.default_url_options[:host] = "localhost:3000"
+  end
+
   def teardown
     Capybara.reset_sessions!
     Capybara.use_default_driver

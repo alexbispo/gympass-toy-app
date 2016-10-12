@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   before_create do |user|
     user.confirmation_token = SecureRandom.urlsafe_base64
+    user.cpf.remove!(/\D/)
   end
 
   def confirm!

@@ -32,7 +32,7 @@ class Signup
         work_location.user = user
         work_location.save!
       elsif is_a_gympass_employee?
-        gympass_location = Location.create(gympass_location_params)
+        gympass_location = Location.new(gympass_location_params)
         gympass_location.user = user
         gympass_location.save!
       end
