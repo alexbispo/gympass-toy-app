@@ -23,18 +23,18 @@ class Signup
     if user.save
       if is_a_regular_end_user?
         home_location = Location.new(home_location_params)
-        home_location.user = user
+        home_location.localizable = user
         home_location.save!
         work_location = Location.new(work_location_params)
-        work_location.user = user
+        work_location.localizable = user
         work_location.save!
       elsif is_a_gym_manager_user?
         work_location = Location.new(work_location_params)
-        work_location.user = user
+        work_location.localizable = user
         work_location.save!
       elsif is_a_gympass_employee?
         gympass_location = Location.new(gympass_location_params)
-        gympass_location.user = user
+        gympass_location.localizable = user
         gympass_location.save!
       end
     end
