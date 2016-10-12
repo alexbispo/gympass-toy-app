@@ -28,4 +28,6 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**bcrypt**_: Porque é a sugestão default do _Rails_ para encriptação de _passwords_.
   * _**pry-rails**_: Porque possibilita usar o _pry_ com o _Rails console_.
   * _**pry-meta**_: Porque agrupa as dependências necessárias para fazer _debug_ com o _pry_.
-  * _**rails-erd**_: Para geração de diagramas _ERD_ (Modelo Entidade Relacionamento).
+  * _**rails-erd**_: Porque possibilita geração de diagramas _ERD_ (Modelo Entidade Relacionamento).
+  * _**rails-i18n**_: Porque ajuda na internacionalização da aplicação.
+  * _**rails-env**_: Porque simplifica a configuração e detecção dos _enviroments_ da aplicação.

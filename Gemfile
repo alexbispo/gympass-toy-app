@@ -14,7 +14,9 @@ gem "simple_form"
 gem "bootstrap-sass"
 gem "validators"
 gem "cpf_cnpj"
-gem 'bcrypt', '~> 3.1.7'
+gem "bcrypt", "~> 3.1.7"
+gem "rails-env"
+gem "rails-i18n"
 
 group :development, :test do
   gem "pry-rails"
