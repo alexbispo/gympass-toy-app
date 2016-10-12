@@ -1,0 +1,46 @@
+<%= simple_form_for(@gym_registration, url: gyms_path) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :name, label: "Nome Fantasia", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :cnpj, label: "CNPJ", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :opening_time_hour, label: "Hora de abertura", as: :integer, input_html: { max: 23, min: 0 }, required: true %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :opening_time_min, label: "Minuto de abertura", as: :integer, input_html: { max: 59, min: 0 }, required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :closing_time_hour, label: "Hora de fechamento", as: :integer, input_html: { max: 23, min: 0 }, required: true %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :closing_time_min, label: "Minuto de fechamento", as: :integer, input_html: { max: 59, min: 0 }, required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.input :location_latitude, as: :float, label: "Endereço latitude" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :location_longitude, as: :float, label: "Endereço longitude" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.collection_check_boxes :gym_managers, gym_managers_coll(current_user.email), :first, :last, item_wrapper_class: "checkbox-inline" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.button :submit, "Cadastrar" %>
+    </div>
+  </div>
+<% end %>

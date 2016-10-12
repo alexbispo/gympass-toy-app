@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav">
         <% if logged_in? %>
           <% if current_user.gym_manager? or current_user.gympass_employee?  %>
-            <li><a href="#">Cadastro de academias</a></li>
+            <li><%= link_to "Cadastro de academias", new_gym_path %></li>
           <% end %>
         <% end %>
       </ul>

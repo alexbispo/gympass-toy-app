@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/login" => "login#new"
   post "/login" => "login#create"
   delete "/logout" => "login#destroy"
+
+  resources :gyms, only: [:new, :create]
 end

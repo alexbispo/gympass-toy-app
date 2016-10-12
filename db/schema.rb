@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012165127) do
+ActiveRecord::Schema.define(version: 20161012211643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 20161012165127) do
   end
 
   create_table "gyms", force: :cascade do |t|
-    t.string   "name",                limit: 100, null: false
-    t.string   "cnpj",                limit: 14,  null: false
-    t.string   "opening_time_in_sec",             null: false
-    t.string   "closing_time_in_sec",             null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "name",                limit: 100,             null: false
+    t.string   "cnpj",                limit: 14,              null: false
+    t.string   "opening_time_in_sec",                         null: false
+    t.string   "closing_time_in_sec",                         null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "status",                          default: 0
     t.index ["cnpj"], name: "index_gyms_on_cnpj", unique: true, using: :btree
   end
 
