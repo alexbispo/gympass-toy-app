@@ -26,3 +26,7 @@ end
 group :development do
   gem "rails-erd"
 end
+
+group :test do
+  gem "capybara"
+end

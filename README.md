@@ -31,3 +31,4 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**rails-erd**_: Porque possibilita geração de diagramas _ERD_ (Modelo Entidade Relacionamento).
   * _**rails-i18n**_: Porque ajuda na internacionalização da aplicação.
   * _**rails-env**_: Porque simplifica a configuração e detecção dos _enviroments_ da aplicação.
+  * _***capybara*_: Porque é a _gem_ mais popular para testes de integração em aplicações _Rails_. E é a unica que eu já usei.
