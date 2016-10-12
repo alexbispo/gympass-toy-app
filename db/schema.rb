@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012160612) do
+ActiveRecord::Schema.define(version: 20161012165127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gym_users", force: :cascade do |t|
+    t.integer  "gym_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_gym_users_on_gym_id", using: :btree
+    t.index ["user_id"], name: "index_gym_users_on_user_id", using: :btree
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string   "name",                limit: 100, null: false
@@ -49,4 +58,6 @@ ActiveRecord::Schema.define(version: 20161012160612) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "gym_users", "gyms"
+  add_foreign_key "gym_users", "users"
 end
