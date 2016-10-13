@@ -43,3 +43,4 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**rails-env**_: Porque simplifica a configuração e detecção dos _enviroments_ da aplicação.
   * _**capybara**_: Porque é a _gem_ mais popular para testes de integração em aplicações _Rails_. E é a unica que eu já usei.
   * _**geokit-rails**_: Porque esta _gem_ atendeu prefeitamente a minha necessidade de fazer _querys_ baseadas em _longitude_ e _latitude_ no banco de dados, como ordenar pela academia com localização mais próxima de um determianado ponto. Uma curiosidade é que a forma como eu modelei o sistema ficou bem próxima do sugerido na documentação da _gem_.
+  * _**mailcatcher**_: Porque funciona muito bem para testar o envio e recebimento de e-mails da aplicação.
