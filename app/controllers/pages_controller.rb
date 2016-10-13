@@ -1,13 +1,15 @@
 class PagesController < ApplicationController
 
   def home
+    if current_user.nil?
+      render :home
+      return
+    end
     if current_user.gympass_employee? or current_user.regular_end_user?
       lat = session[:lat]
       lng = session[:lng]
-      binding.pry
       @gyms = search_gyms_by_location(session[:lat], session[:lng])
-    else
-      @gym = []
+      # binding.pry
     end
   end
 
