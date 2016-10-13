@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :locations, dependent: :destroy, as: :localizable
   has_many :gym_users
   has_many :gyms, through: :gym_users
+  has_many :daily_tokens
 
   acts_as_mappable through: :locations
 

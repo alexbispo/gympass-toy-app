@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "pages#home"
-  # resources :users, only: [:new, :create]
+  get "/search/gyms" => "pages#search", as: :home_search
+
   get "/signup" => "signup#new"
   post "/signup" => "signup#create"
 
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   resources :gyms, only: [:new, :create, :index, :destroy, :show]
   patch "/gym/:id/approve" => "gyms#approve", as: :approve_gym
 
-  get "/search/gyms" => "pages#search", as: :home_search
+  post "/daily_token" => "daily_token#create"
 end

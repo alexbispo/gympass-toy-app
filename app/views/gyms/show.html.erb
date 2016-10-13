@@ -24,4 +24,13 @@
   <strong>Longitude:</strong>
   <%= @gym.location.longitude %>
 </p>
-<%= link_to "Voltar", root_path %>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to "Voltar", root_path %>
+  </div>
+  <div class="col-md-2">
+    <%= button_to "Solicitar Token", daily_token_path(gym_id: @gym.id), method: :post,
+    data: { confirm: "Deseja realmente solicitar seu token diário para a academia #{@gym.name}?" },
+    class: "btn btn-warning", disabled: @gym.closed? %>
+  </div>
+</div>

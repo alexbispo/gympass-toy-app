@@ -12,6 +12,7 @@
           <th>CNPJ</th>
           <th>Horário de abertura</th>
           <th>Horário de fechamento</th>
+          <th>Daily Tokens</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -22,6 +23,9 @@
           <td><%= gym.cnpj %></td>
           <td><%= gym.opening_hourary %></td>
           <td><%= gym.closing_hourary %></td>
+          <td>
+            <%= link_to("#{gym.daily_tokens.count}", nil, class: "btn btn-primary", html_options: {role: "button" }) %>
+          </td>
           <td><%= gym.status %></td>
           <% if current_user.gympass_employee? %>
           <td>

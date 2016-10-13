@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013123504) do
+ActiveRecord::Schema.define(version: 20161013203020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_tokens", force: :cascade do |t|
+    t.string   "token",       null: false
+    t.datetime "validate_at"
+    t.datetime "expires_at",  null: false
+    t.integer  "user_id",     null: false
+    t.integer  "gym_id",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["gym_id"], name: "index_daily_tokens_on_gym_id", using: :btree
+    t.index ["user_id"], name: "index_daily_tokens_on_user_id", using: :btree
+  end
 
   create_table "gym_users", force: :cascade do |t|
     t.integer  "gym_id"
@@ -59,6 +71,8 @@ ActiveRecord::Schema.define(version: 20161013123504) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "daily_tokens", "gyms"
+  add_foreign_key "daily_tokens", "users"
   add_foreign_key "gym_users", "gyms"
   add_foreign_key "gym_users", "users"
 end
