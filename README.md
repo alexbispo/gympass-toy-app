@@ -44,3 +44,16 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**capybara**_: Porque é a _gem_ mais popular para testes de integração em aplicações _Rails_. E é a unica que eu já usei.
   * _**geokit-rails**_: Porque esta _gem_ atendeu prefeitamente a minha necessidade de fazer _querys_ baseadas em _longitude_ e _latitude_ no banco de dados, como ordenar pela academia com localização mais próxima de um determianado ponto. Uma curiosidade é que a forma como eu modelei o sistema ficou bem próxima do sugerido na documentação da _gem_.
   * _**mailcatcher**_: Porque funciona muito bem para testar o envio e recebimento de e-mails da aplicação.
+
+## TODO
+- Busca de academias por um ponto arbitrário de localização.
+
+- Obtenção de token diário.
+
+- Validação de token diário.
+
+- Listagem de validações de tokens para as academias.
+
+- Edição de academias cadastradas, pra possibilitar adicionar mais usuários como administradores
+
+- Um tapa no layout.
