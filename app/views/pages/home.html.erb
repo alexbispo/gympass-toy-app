@@ -1,9 +1,41 @@
 <div class="row">
-  <h2> Seja bem vindo ao Gympass Toy App!
+  <div class="col-md-12">
+    <h2> Seja bem vindo ao Gympass Toy App!
+  </div>
 </div>
 
 <% if logged_in? %>
   <% if current_user.regular_end_user? or current_user.gympass_employee? %>
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Encontre uma academia próxima de você!
+    </div>
+  </div>
+    <%= form_tag(home_search_path, method: :get) do %>
+      <div class="row">
+        <div class="col-md-3">
+          <%= label_tag do %>
+            <%= radio_button_tag "type_of_location", "current", true %>
+            Próximo a minha localização atual
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag do %>
+            <%= radio_button_tag "type_of_location", "home" %>
+            Próximo a minha casa
+          <% end %>
+        </div>
+        <div class="col-md-3">
+          <%= label_tag do %>
+            <%= radio_button_tag "type_of_location", "work" %>
+            Próximo ao meu trabalho
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag "Buscar", class: "btn-search btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
     <div class="row">
       <div class="col-md-12">
         <ul>

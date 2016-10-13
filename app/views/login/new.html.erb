@@ -1,4 +1,6 @@
 <%= simple_form_for(@login, url: login_path) do |f| %>
+  <%= hidden_field_tag "lat" %>
+  <%= hidden_field_tag "lng" %>
   <div class="row">
     <div class="col-md-4">
       <%= f.input :email, label: "Email", required: true %>
@@ -15,3 +17,25 @@
     </div>
   </div>
 <% end %>
+<script>
+var lat;
+var lng;
+function getLocation() {
+  if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+      console.log("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude
+    console.log("Latitude: " + lat);
+    console.log("Longitude: " + lng);
+    $("#lat").val(lat);
+    $("#lng").val(lng);
+}
+
+getLocation();
+</script>

@@ -13,6 +13,8 @@ class LoginController < ApplicationController
       if user
         reset_session
         session[:user_id] = user.id
+        session[:lat] = params[:lat].to_f
+        session[:lng] = params[:lng].to_f
         redirect_to root_path
       else
         redirect_to login_path, alert: "E-mail/senha inválidos."

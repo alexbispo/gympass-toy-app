@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resources :gyms, only: [:new, :create, :index, :destroy]
   patch "/gym/:id/approve" => "gyms#approve", as: :approve_gym
+
+  get "/search/gyms" => "pages#search", as: :home_search
 end
