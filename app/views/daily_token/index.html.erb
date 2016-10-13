@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Academia</th>
+          <th>Solicitante</th>
+          <th>Data da solicitação</th>
+          <th>Data da expiração</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @daily_tokens.each do |daily_token| %>
+        <tr>
+          <td><%= daily_token.gym.name %></td>
+          <td><%= daily_token.user.email %></td>
+          <td><%= daily_token.created_at %></td>
+          <td><%= daily_token.expires_at %></td>
+          <td><%= daily_token.validated? ? "Aprovado em: #{daily_token.validate_at}"  : "Pendente" %></td>
+          <td>
+            <%= button_to "Aprovar", nil, method: :patch,
+            data: { confirm: "Deseja realmente aprovar este token" },
+            class: "btn btn-warning", disabled: daily_token.validated?  %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

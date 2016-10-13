@@ -24,7 +24,7 @@
           <td><%= gym.opening_hourary %></td>
           <td><%= gym.closing_hourary %></td>
           <td>
-            <%= link_to("#{gym.daily_tokens.count}", nil, class: "btn btn-primary", html_options: {role: "button" }) %>
+            <%= link_to("#{gym.daily_tokens.count}", daily_token_path(gym_id: gym.id), class: "btn btn-primary", html_options: {role: "button" }) %>
           </td>
           <td><%= gym.status %></td>
           <% if current_user.gympass_employee? %>

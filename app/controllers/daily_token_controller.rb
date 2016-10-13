@@ -16,6 +16,14 @@ class DailyTokenController < ApplicationController
     end
   end
 
+  def index
+    @daily_tokens = DailyToken.joins(:gym).where("gyms.id = ?", params[:gym_id])
+  end
+
+  def validate
+    
+  end
+
   private
 
   def user_has_retrieved_today_token?
