@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome Fantasia</th>
+      <th>CNPJ</th>
+      <th>Horário de abertura</th>
+      <th>Horário de fechamento</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gyms.each do |gym| %>
+      <tr>
+        <td><%= gym.name %></td>
+        <td><%= gym.cnpj %></td>
+        <td><%= gym.opening_time_in_sec %></td>
+        <td><%= gym.closing_time_in_sec %></td>
+        <td><%= gym.status %></td>
+        <% if current_user.gympass_employee? %>
+          <td>
+            <%= button_to "Aprovar", approve_gym_path(gym), method: :patch,
+              data: { confirm: "Deseja realmente aprovar a academia #{gym.name}?" },
+              class: "btn btn-warning", disabled: gym.approved? %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
