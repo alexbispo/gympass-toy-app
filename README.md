@@ -56,4 +56,6 @@ Esta aplicação é uma versão simplificada do Gympass.
 
 - Edição de academias cadastradas, pra possibilitar adicionar mais usuários como administradores
 
+- Traduzir algumas mensagems de erro.
+
 - Um tapa no layout.
