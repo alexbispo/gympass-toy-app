@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post "/login" => "login#create"
   delete "/logout" => "login#destroy"
 
-  resources :gyms, only: [:new, :create, :index]
+  resources :gyms, only: [:new, :create, :index, :destroy]
   patch "/gym/:id/approve" => "gyms#approve", as: :approve_gym
 end

@@ -30,6 +30,11 @@
             class: "btn btn-warning", disabled: gym.approved? %>
           </td>
           <% end %>
+          <td>
+            <%= button_to "Deletar", gym, method: :delete,
+            data: { confirm: "Deseja realmente remover a #{gym.name}?" },
+            class: "btn btn-danger" %>
+          </td>
         </tr>
         <% end %>
       </tbody>

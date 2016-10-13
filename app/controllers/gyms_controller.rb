@@ -19,10 +19,15 @@ class GymsController < ApplicationController
   end
 
   def index
-    @gyms = Gym.all
+    if current_user.gympass_employee?
+      @gyms = Gym.all
+    else
+      @gyms = current_user.gyms
+    end
   end
 
   def approve
+    redirect_to gyms_path, error: "Ação não permitida!" unless current_user.gympass_employee?
     @gym = Gym.find(params[:id])
     if @gym
       Gym.transaction do
@@ -30,6 +35,21 @@ class GymsController < ApplicationController
         GymApprovalMailer.approval_email(@gym).deliver_now
         redirect_to gyms_path, notice: "#{@gym.name} foi aprovada com sucesso!"
       end
+    else
+      redirect_to gyms_path, error: "Academia não encontrada!"
+    end
+  end
+
+  def destroy
+    redirect_to gyms_path, error: "Ação não permitida!" unless current_user.gympass_employee? or current_user.gym_manager?
+    if current_user.gym_manager?
+      @gym = current_user.gyms.find(params[:id])
+    elsif current_user.gympass_employee?
+      @gym = Gym.find(params[:id])
+    end
+    if @gym
+      @gym.destroy!
+      redirect_to gyms_path, notice: "#{@gym.name} foi removida com sucesso!"
     else
       redirect_to gyms_path, error: "Academia não encontrada!"
     end
