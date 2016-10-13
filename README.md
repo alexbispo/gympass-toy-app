@@ -24,6 +24,11 @@ Esta aplicação é uma versão simplificada do Gympass.
 ### Cadastro de academias
   * Conforme os requisitos, uma academia, representada pela classe _Gym_ da aplicação, deve ter uma localização, optei por utilizar o recurso de associção polimórfica do Rails.
   * _Location_ está associada á uma entidade polimórfica que eu chamei de _Localizable_, então defini _User_ e _Gym_ como sendo polimorficamente _Localizables_.
+  * Escolhi esta abordagem porque achei que ficaria estranho, ter no modelo _Location_ instancias que apesar de terem um atributo _User_, não pertenceriam a um _User_ e sim a um _Gym_, e vice versa.
+
+### Listar academias ordenadas pela proximidade da geolocalização atual do usuário
+  * Utilizei a _API_ _geolocation_ do _HTML5_, optei por obter a localização do usuário no momento do login, as informações de _latitude_ e _longitude_ ficam salvas na sessão do usuário.
+  * Para fazer a _query_ calculando a distancia das academias em relação a um determinado ponto, utilizei a _gem_ _geokit-rails_.
 
 ## _GEMs_:
   * _**bootstrap-sass**_: Porque ele facilita a criação de um _layout_ no mínimo aceitável para uma aplicação web, é bastante utilizado pela comunidade, bem documentado. E sinceramente, _layout_ de aplicações não é o meu forte. _SASS_, porque é a sugestão _default_ do _Rails_.
@@ -35,4 +40,5 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**rails-erd**_: Porque possibilita geração de diagramas _ERD_ (Modelo Entidade Relacionamento).
   * _**rails-i18n**_: Porque ajuda na internacionalização da aplicação.
   * _**rails-env**_: Porque simplifica a configuração e detecção dos _enviroments_ da aplicação.
-  * _***capybara*_: Porque é a _gem_ mais popular para testes de integração em aplicações _Rails_. E é a unica que eu já usei.
+  * _**capybara**_: Porque é a _gem_ mais popular para testes de integração em aplicações _Rails_. E é a unica que eu já usei.
+  * _**geokit-rails**_: Porque esta _gem_ atendeu prefeitamente a minha necessidade de fazer _querys_ baseadas em _longitude_ e _latitude_ no banco de dados, como ordenar pela academia com localização mais próxima de um determianado ponto. Uma curiosidade é que a forma como eu modelei o sistema ficou bem próxima do sugerido na documentação da _gem_.
