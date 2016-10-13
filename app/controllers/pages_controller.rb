@@ -29,6 +29,14 @@ class PagesController < ApplicationController
     elsif type_of_location == "work"
       work_location = current_user.locations.work.first
       @gyms = search_gyms_by_location(work_location.latitude, work_location.longitude)
+    elsif type_of_location == "arbitrary"
+      latitude = params[:latitude]
+      longitude = params[:longitude]
+      if latitude.blank? or longitude.blank?
+        redirect_to root_path, alert: "Para fazer uma busca arbitrária é obrgatório informar a Latitude e Longitude"
+        return
+      end
+      @gyms = search_gyms_by_location(latitude.to_f, longitude.to_f)
     end
     render :home
   end

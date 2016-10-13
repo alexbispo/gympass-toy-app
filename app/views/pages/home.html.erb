@@ -1,8 +1,10 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2> Seja bem vindo ao Gympass Toy App!
+<% if current_user.nil? or current_user.gym_manager? %>
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Seja bem vindo ao Gympass Toy App!
+    </div>
   </div>
-</div>
+<% end %>
 
 <% if logged_in? %>
   <% if current_user.regular_end_user? or current_user.gympass_employee? %>
@@ -32,11 +34,31 @@
           <% end %>
         </div>
         <div class="col-md-2">
+          <%= label_tag do %>
+            <%= radio_button_tag "type_of_location", "arbitrary" %>
+            Localização arbritária
+          <% end %>
+        </div>
+        <div class="col-md-2">
           <%= submit_tag "Buscar", class: "btn-search btn btn-primary" %>
         </div>
       </div>
+      <div id="search-arbitrary-section" class="row" style="display: none;">
+        <div class="col-md-4">
+          <%= label_tag do %>
+            Latitude
+            <%= number_field_tag "latitude", nil, step: "any" %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= label_tag do %>
+            Logintude
+            <%= number_field_tag "longitude", nil, step: "any" %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    <div class="row">
+    <div class="row" style="margin-top: 5%;">
       <div class="col-md-12">
         <ul>
           <% unless @gyms.nil? %>
@@ -49,3 +71,14 @@
     </div>
   <% end %>
 <% end %>
+<script type="text/javascript">
+  $(":radio[name='type_of_location']").on("change", function(){
+    if ("type_of_location_arbitrary" == this.id) {
+      $("#search-arbitrary-section").show();
+    } else {
+      $("#latitude").val("");
+      $("#longitude").val("");
+      $("#search-arbitrary-section").hide();
+    }
+  });
+</script>
