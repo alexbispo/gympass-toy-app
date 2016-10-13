@@ -1,1 +1,17 @@
-<h1> Home Gympass!
+<div class="row">
+  <h2> Seja bem vindo ao Gympass Toy App!
+</div>
+
+<% if logged_in? %>
+  <% if current_user.regular_end_user? or current_user.gympass_employee? %>
+    <div class="row">
+      <div class="col-md-12">
+        <ul>
+          <% @gyms.each do |gym| %>
+          <li><%= link_to gym.name, nil %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>

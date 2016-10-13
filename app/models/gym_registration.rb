@@ -13,7 +13,7 @@ class GymRegistration
     gym.closing_time_in_sec = seconds_since_midnight(closing_time_hour, closing_time_min)
     if gym.save
       location = Location
-        .new(latitude: location_latitude, longitude: location_longitude, type_of_location: Location.type_of_locations[:work])
+        .new(latitude: location_latitude.to_f, longitude: location_longitude.to_f, type_of_location: Location.type_of_locations[:work])
       location.localizable = gym
       location.save!
 

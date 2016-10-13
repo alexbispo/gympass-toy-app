@@ -3,6 +3,8 @@ class Gym < ApplicationRecord
   has_many :gym_users, dependent: :destroy
   has_many :users, through: :gym_users
 
+  acts_as_mappable through: :location
+
   enum status: [:pending, :approved]
 
   before_create do |gym|

@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :gym_users
   has_many :gyms, through: :gym_users
 
+  acts_as_mappable through: :locations
+
   enum role: [:gympass_employee, :gym_manager, :regular_end_user]
 
   has_secure_password

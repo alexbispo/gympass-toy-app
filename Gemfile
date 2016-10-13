@@ -17,6 +17,7 @@ gem "cpf_cnpj"
 gem "bcrypt", "~> 3.1.7"
 gem "rails-env"
 gem "rails-i18n"
+gem "geokit-rails"
 
 group :development, :test do
   gem "pry-rails"

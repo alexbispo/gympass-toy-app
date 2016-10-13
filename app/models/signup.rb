@@ -54,16 +54,16 @@ class Signup
 
   def home_location_params
     {
-      latitude: self.home_latitude,
-      longitude: self.home_longitude,
+      latitude: self.home_latitude.to_f,
+      longitude: self.home_longitude.to_f,
       type_of_location: Location.type_of_locations[:home]
     }
   end
 
   def work_location_params
     {
-      latitude: self.work_latitude,
-      longitude: self.work_longitude,
+      latitude: self.work_latitude.to_f,
+      longitude: self.work_longitude.to_f,
       type_of_location: Location.type_of_locations[:work]
     }
   end
