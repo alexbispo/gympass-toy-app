@@ -18,6 +18,10 @@ class GymsController < ApplicationController
     end
   end
 
+  def show
+    @gym = Gym.approved.find(params[:id])
+  end
+
   def index
     if current_user.gympass_employee?
       @gyms = Gym.all
@@ -27,7 +31,10 @@ class GymsController < ApplicationController
   end
 
   def approve
-    redirect_to gyms_path, error: "Ação não permitida!" unless current_user.gympass_employee?
+    unless current_user.gympass_employee?
+      redirect_to gyms_path, error: "Ação não permitida!"
+      return
+    end
     @gym = Gym.find(params[:id])
     if @gym
       Gym.transaction do

@@ -1,0 +1,27 @@
+<p>
+  <strong>Nome Fantasia:</strong>
+  <%= @gym.name %>
+</p>
+
+<p>
+  <strong>CNPJ:</strong>
+  <%= @gym.cnpj %>
+</p>
+
+<p>
+  <strong>Horário de abertura:</strong>
+  <%= @gym.opening_hourary %>
+</p>
+<p>
+  <strong>Horário de fechamento:</strong>
+  <%= @gym.closing_hourary %>
+</p>
+<p>
+  <strong>Latitude:</strong>
+  <%= @gym.location.latitude %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @gym.location.longitude %>
+</p>
+<%= link_to "Voltar", root_path %>

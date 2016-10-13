@@ -58,12 +58,12 @@
         </div>
       </div>
     <% end %>
-    <div class="row" style="margin-top: 5%;">
+    <div class="row" style="margin-top: 5%; font-size: 2em;">
       <div class="col-md-12">
         <ul>
           <% unless @gyms.nil? %>
             <% @gyms.each do |gym| %>
-            <li><%= link_to gym.name, nil %></li>
+            <li><%= link_to gym.name, gym %></li>
             <% end %>
           <% end %>
         </ul>

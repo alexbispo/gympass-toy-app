@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post "/login" => "login#create"
   delete "/logout" => "login#destroy"
 
-  resources :gyms, only: [:new, :create, :index, :destroy]
+  resources :gyms, only: [:new, :create, :index, :destroy, :show]
   patch "/gym/:id/approve" => "gyms#approve", as: :approve_gym
 
   get "/search/gyms" => "pages#search", as: :home_search
