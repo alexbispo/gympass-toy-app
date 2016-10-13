@@ -25,6 +25,7 @@ Esta aplicação é uma versão simplificada do Gympass.
   * Conforme os requisitos, uma academia, representada pela classe _Gym_ da aplicação, deve ter uma localização, optei por utilizar o recurso de associção polimórfica do Rails.
   * _Location_ está associada á uma entidade polimórfica que eu chamei de _Localizable_, então defini _User_ e _Gym_ como sendo polimorficamente _Localizables_.
   * Escolhi esta abordagem porque achei que ficaria estranho, ter no modelo _Location_ instancias que apesar de terem um atributo _User_, não pertenceriam a um _User_ e sim a um _Gym_, e vice versa.
+  * Em relação aos horários de abertura e fechamento, optei por armazenalos como segundos desde meia noite do dia do cadastro, porque assim basta somá-los com a meia noite do dia corrente para saber o horário exato.
 
 ### Listar academias ordenadas pela proximidade da geolocalização atual do usuário
   * Utilizei a _API_ _geolocation_ do _HTML5_, optei por obter a localização do usuário no momento do login, as informações de _latitude_ e _longitude_ ficam salvas na sessão do usuário.
