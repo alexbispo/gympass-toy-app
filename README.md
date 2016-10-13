@@ -21,6 +21,9 @@ Esta aplicação é uma versão simplificada do Gympass.
 ### Autenticação
   * Optei por implementar a autenticação, ao invés de utilizar alguma _gem_ para esse propósito. Porque os requisitos da aplicação exigem uma autenticação simples, em outras palavras, não quis "usar um canhão para matar uma formiga".
 
+### Cadastro de academias
+  * Conforme os requisitos, uma academia, representada pela classe _Gym_ da aplicação, deve ter uma localização, optei por utilizar o recurso de associção polimórfica do Rails. _Location_ está associada á uma entidade polimórfica que eu chamei de _Localizable_, então defini _User_ e _Gym_ como sendo polimorficamente _Localizables_.
+
 ## _GEMs_:
   * _**bootstrap-sass**_: Porque ele facilita a criação de um _layout_ no mínimo aceitável para uma aplicação web, é bastante utilizado pela comunidade, bem documentado. E sinceramente, _layout_ de aplicações não é o meu forte. _SASS_, porque é a sugestão _default_ do _Rails_.
   * _**simple_form**_: Porque ela agiliza a criação de formulários e possui uma boa integração com o _bootstrap_, além de ser a _gem_ mais utilizada para este propósito.
