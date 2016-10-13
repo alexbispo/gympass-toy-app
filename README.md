@@ -46,8 +46,6 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**mailcatcher**_: Porque funciona muito bem para testar o envio e recebimento de e-mails da aplicação.
 
 ## TODO
-- Busca de academias por um ponto arbitrário de localização.
-
 - Obtenção de token diário.
 
 - Validação de token diário.
