@@ -7,14 +7,18 @@
       <ul class="nav navbar-nav">
         <% if logged_in? %>
           <% if current_user.gym_manager? or current_user.gympass_employee?  %>
-            <li><%= link_to "Cadastro de academias", gyms_path %></li>
+            <li><%= link_to "Academias", gyms_path %></li>
           <% end %>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li class="current-user-name">Olá <%= current_user.name %></li>
-          <li><%= button_to "Sair", logout_path, method: "delete", class: "btn btn-default" %></li>
+          <li class="current-user-name">
+            <p class="navbar-text">
+              Logado como <%= current_user.name %> - <%= current_user.role.titleize %>
+            </p>
+          </li>
+          <li><%= button_to "Sair", logout_path, method: "delete", class: "btn btn-default navbar-btn" %></li>
         <% else %>
           <li><%= link_to "Cadastro", signup_path %></li>
           <li><%= link_to "Login", login_path %></li>
