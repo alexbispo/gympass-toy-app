@@ -27,8 +27,8 @@ class SignupTest < ActionDispatch::IntegrationTest
     fill_in "Crie sua senha", with: "joaoDoeSecret123"
     fill_in "Confirme sua senha", with: "joaoDoeSecret123"
     choose("Gerente de academia")
-    fill_in id: "signup_work_latitude", with: "-23.570787"
-    fill_in id: "signup_work_longitude", with: "-46.6915844"
+    fill_in id: "signup_work_latitude", with: -23.570787
+    fill_in id: "signup_work_longitude", with: -46.6915844
 
     click_button "Cadastrar"
     user = User.find_by_email("joaodoe@mysite.com")
