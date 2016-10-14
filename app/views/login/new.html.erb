@@ -3,12 +3,12 @@
   <%= hidden_field_tag "lng" %>
   <div class="row">
     <div class="col-md-4">
-      <%= f.input :email, label: "Email", required: true %>
+      <%= f.input :email, label: "Email", required: true, input_html: { maxlength: 100 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2">
-      <%= f.input :password, label: "Senha", required: true %>
+      <%= f.input :password, label: "Senha", required: true, input_html: { maxlength: 8 } %>
     </div>
   </div>
   <div class="row">

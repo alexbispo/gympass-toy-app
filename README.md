@@ -7,7 +7,7 @@ Esta aplicação é uma versão simplificada do Gympass.
 ![Imagem do ERD do GympassToyApp]
 (gympasstoyapp-erd.png)
 
-## Funcionalidades
+## Algumas Funcionalidades
 
 ### Cadastro de usuários:
   * A aplicação possui três tipos de usuários, usuário comum, usuário administrador de academia, usuário funcionário da Gympass.
