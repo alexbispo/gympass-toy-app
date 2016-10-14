@@ -45,9 +45,9 @@ Esta aplicação é uma versão simplificada do Gympass.
   * _**geokit-rails**_: Porque esta _gem_ atendeu prefeitamente a minha necessidade de fazer _querys_ baseadas em _longitude_ e _latitude_ no banco de dados, como ordenar pela academia com localização mais próxima de um determianado ponto. Uma curiosidade é que a forma como eu modelei o sistema ficou bem próxima do sugerido na documentação da _gem_.
   * _**mailcatcher**_: Porque funciona muito bem para testar o envio e recebimento de e-mails da aplicação.
 
-## TODO
-- Edição de academias cadastradas, pra possibilitar adicionar mais usuários como administradores
-
-- Traduzir algumas mensagems de erro.
-
-- Um tapa no layout.
+## O que eu faria se tivesse mais tempo
+- Faria uma refatoração no código, tendo em vista que o código foi escrito da melhor maneira possível visando a entrega.
+- Escreveria mais testes unitários e de integração.
+- Implementaria a edição do perfil do usuário.
+- Implementaria suporte completo ao inglês.
+- Implementaria a edição de academias, possibilitando a inclusão de mais usuários como administradores.
