@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   patch "/gym/:id/approve" => "gyms#approve", as: :approve_gym
 
   post "/daily_token" => "daily_token#create"
-  get "/daily_token" => "daily_token#index"
+  get "/daily_tokens" => "daily_token#index"
+  patch "/daily_token/:id/validate" => "daily_token#validate", as: :validate_token
 end

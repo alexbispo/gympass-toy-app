@@ -8,12 +8,11 @@ class DailyToken < ApplicationRecord
   end
 
   def validate!
-    return if validated?
-
-    unless expired?
-      self.validated_at = Time.current
-      self.token = ""
+    return if validated? or expired?
+    Time.use_zone("America/Sao_Paulo") do
+      self.validate_at = Time.current
     end
+    self.token = ""
     save!
   end
 
@@ -22,6 +21,8 @@ class DailyToken < ApplicationRecord
   end
 
   def expired?
-    Time.current >= self.expires_at
+    Time.use_zone("America/Sao_Paulo") do
+      Time.current >= self.expires_at
+    end
   end
 end

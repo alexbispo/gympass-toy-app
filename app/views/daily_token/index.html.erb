@@ -15,13 +15,13 @@
         <tr>
           <td><%= daily_token.gym.name %></td>
           <td><%= daily_token.user.email %></td>
-          <td><%= daily_token.created_at %></td>
-          <td><%= daily_token.expires_at %></td>
-          <td><%= daily_token.validated? ? "Aprovado em: #{daily_token.validate_at}"  : "Pendente" %></td>
+          <td><%= daily_token.created_at.to_s(:gympass) %></td>
+          <td><%= daily_token.expires_at.to_s(:gympass) %></td>
+          <td><%= daily_token.validated? ? "Aprovado em: #{daily_token.validate_at.to_s(:gympass)}"  : "Pendente" %></td>
           <td>
-            <%= button_to "Aprovar", nil, method: :patch,
+            <%= button_to "Aprovar", validate_token_path(daily_token), method: :patch,
             data: { confirm: "Deseja realmente aprovar este token" },
-            class: "btn btn-warning", disabled: daily_token.validated?  %>
+            class: "btn btn-warning", disabled: daily_token.validated? or daily_token.expired?  %>
           </td>
         </tr>
         <% end %>
