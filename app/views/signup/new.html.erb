@@ -1,32 +1,32 @@
 <%= simple_form_for(@signup, url: signup_path) do |f| %>
   <div class="row">
     <div class="col-md-4">
-      <%= f.input :name, label: "Nome e sobrenome", required: true %>
+      <%= f.input :name, label: "Nome e sobrenome", required: true, input_html: { maxlength: 100 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
-      <%= f.input :email, label: "Email para cadastro", required: true %>
+      <%= f.input :email, label: "Email para cadastro", required: true, input_html: { maxlength: 100 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2">
-      <%= f.input :cpf, label: "CPF", required: true %>
+      <%= f.input :cpf, label: "CPF", required: true, input_html: { maxlength: 14 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2">
-      <%= f.input :password, label: "Crie sua senha", required: true %>
+      <%= f.input :password, hint: 'Máximo de 72 caractéres', label: "Crie sua senha", required: true, input_html: { maxlength: 72 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2">
-      <%= f.input :password_confirmation, label: "Confirme sua senha", required: true %>
+      <%= f.input :password_confirmation, label: "Confirme sua senha", required: true, input_html: { maxlength: 8 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <%= f.collection_radio_buttons :role, [[1, "Gerente de academia"], [2, "Usuário de academia"]], :first, :last %>
+      <%= f.collection_radio_buttons :role, [[1, "Gerente de academia"], [2, "Usuário de academia"]], :first, :last, item_wrapper_class: "radio-inline" %>
     </div>
   </div>
   <div class="row">

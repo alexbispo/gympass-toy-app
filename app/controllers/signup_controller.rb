@@ -15,6 +15,9 @@ class SignupController < ApplicationController
         end
       end
     else
+      if @signup.errors.has_key?(:role)
+        flash[:alert] = "Por favor informe se você é um Gerente de academia ou Usuário de academia."
+      end
       render :new
     end
   end

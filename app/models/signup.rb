@@ -8,6 +8,7 @@ class Signup
 
   validates_presence_of :name, :email, :cpf
   validates_length_of :name, maximum: 100
+  validates_length_of :password, maximum: 72
   validates_email_format_of :email
   validate :email_uniqueness
   validate :cpf_uniqueness

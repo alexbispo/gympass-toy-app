@@ -5,5 +5,5 @@ class Login
 
   validates_presence_of :email, :password
   validates_email_format_of :email
-  validates_length_of :password, maximum: 8
+  validates_length_of :password, maximum: 72
 end
