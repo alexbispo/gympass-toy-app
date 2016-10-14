@@ -7,6 +7,14 @@ pt-BR:
           attributes:
             email:
               invalid_email: Email inválido
+        signup:
+          attributes:
+            cpf:
+              invalid_cpf: CPF inválido
+        gym_registration:
+          attributes:
+            cnpj:
+              invalid_cnpj: CNPJ inválido
   activerecord:
     errors:
       messages:

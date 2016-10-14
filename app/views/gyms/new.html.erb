@@ -1,12 +1,12 @@
 <%= simple_form_for(@gym_registration, url: gyms_path) do |f| %>
   <div class="row">
     <div class="col-md-4">
-      <%= f.input :name, label: "Nome Fantasia", required: true %>
+      <%= f.input :name, label: "Nome Fantasia", required: true,  input_html: { maxlength: 100 } %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2">
-      <%= f.input :cnpj, label: "CNPJ", required: true %>
+      <%= f.input :cnpj, label: "CNPJ", required: true,  input_html: { maxlength: 18 } %>
     </div>
   </div>
   <div class="row">
@@ -34,11 +34,12 @@
     </div>
   </div>
   <div class="row">
+    <%= label_tag "Outros administradores:" %>
     <div class="col-md-12">
       <%= f.collection_check_boxes :gym_managers, gym_managers_coll(current_user.email), :first, :last, item_wrapper_class: "checkbox-inline" %>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 5%;">
     <div class="col-md-2">
       <%= f.button :submit, "Cadastrar" %>
     </div>
