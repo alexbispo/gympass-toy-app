@@ -4,8 +4,7 @@ Esta aplicação é uma versão simplificada do Gympass.
 
 ## Modelo Entidade Relacionamento (ERD)
 
-![Imagem do ERD do GympassToyApp]
-(gympasstoyapp-erd.png)
+<img src="gympasstoyapp-erd.png" alt="Imagem do ERD do GympassToyApp">
 
 ## Algumas Funcionalidades
 
