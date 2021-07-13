@@ -38,7 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (7.1.2)
     autoprefixer-rails (6.5.0.2)
       execjs
@@ -119,6 +120,7 @@ GEM
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
+    public_suffix (4.0.6)
     puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
